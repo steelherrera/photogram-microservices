@@ -53,6 +53,7 @@ exports.handler = async (event, context) => {
         }
     }catch(exc){
         console.error("Exception: " + exc.message);
+        console.error(exc);
         output = toResponse(500, "Internal server error.");
     }finally{
         console.log("Inside handler, output: " + JSON.stringify(output));
