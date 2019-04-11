@@ -42,7 +42,7 @@ exports.handler = async (event, context) => {
                         "user": dbUser
                     });
                     const dbResponse = await(userDao.updateSessionToken(user.username, token));
-                    console.log("Db response: "+ JSON.stringify(dbResponse));
+                    console.log("Db response: " + JSON.stringify(dbResponse));
                 }
             }else{
                 output = toResponse(404, "User not found.");
