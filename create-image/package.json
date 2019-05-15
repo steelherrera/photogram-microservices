@@ -1,13 +1,12 @@
 {
-  "name": "create-user",
+  "name": "create-image",
   "version": "1.0.0",
-  "description": "Handler for creating user",
+  "description": "Handler for creating an image",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "dependencies": {
-    "bcrypt": "^3.0.5",
     "photogram-core": "git+https://github.com/steelmhf06/photogram-core.git",
     "uniqid": "^5.0.3"
   },

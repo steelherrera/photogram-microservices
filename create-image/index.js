@@ -1,9 +1,8 @@
 const core = require('photogram-core');
 const Utils = core.Utils;
-const UserDAO = require('./dao/user-dao').UserDAO;
+const ImageDAO = require('./dao/image-dao').ImageDAO;
 const uniqid = require('uniqid');
 const schema = require("./schema.json");
-const bcrypt = require('bcrypt');
 
 const toResponse = (code, message) => {
     return {
@@ -25,14 +24,13 @@ exports.handler = async (event, context) => {
     context.callbackWaitsForEmptyEventLoop = false;
     let output = {};
     console.log("Inside handler, event: " + JSON.stringify(event));
-    const userDao = new UserDAO();
+    const imageDao = new ImageDAO();
     try{
-        const user = JSON.parse(event.body);
+        const image = JSON.parse(event.body);
         const validation = Utils.validateSchema(user, schema);
         if(validation.valid){
-            user.id = uniqid();
-            user.pass = bcrypt.hashSync(user.pass, process.env.salt || 10);
-            const insertionResponse = await(userDao.insert(user));
+            image.id = uniqid();
+            const insertionResponse = await(imageDao.insert(image));
             console.log("Insertion response: " + JSON.stringify(insertionResponse));
             output = toResponse(200, "OK");
         }else{
