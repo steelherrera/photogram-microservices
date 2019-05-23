@@ -1,0 +1,27 @@
+{
+  "name": "run-steps",
+  "version": "1.0.0",
+  "description": "Handler that runs step functions for post creation process",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "photogram-core": "git+https://github.com/steelmhf06/photogram-core.git",
+    "uniqid": "^5.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steelmhf06/photogram-core.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steelmhf06/photogram-core/issues"
+  },
+  "homepage": "https://github.com/steelmhf06/photogram-core#readme"
+}

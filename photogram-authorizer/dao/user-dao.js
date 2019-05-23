@@ -7,7 +7,8 @@ module.exports.UserDAO = function () {
     this.findById = async (id) => {
         const params = {
             "id": id
-        }
-        return await(dbConnector.findByFields(modelName, params))[0];
+        };
+        const result = await(dbConnector.findByFields(modelName, params));
+        return result[0];
     }
 }
