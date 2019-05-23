@@ -1,8 +1,5 @@
 const core = require('photogram-core');
-const Utils = core.Utils;
-const ImageDAO = require('./dao/image-dao').ImageDAO;
-const uniqid = require('uniqid');
-const schema = require("./schema.json");
+const PostDAO = require('./dao/post-dao').PostDAO;
 
 const toResponse = (code, message) => {
     return {
@@ -27,20 +24,12 @@ exports.handler = async (event, context) => {
         message = JSON.parse(event.Records[0].Sns.Message);
     }
     let output = {};
-    console.log("Inside handler, event: " + JSON.stringify(message));
-    const imageDao = new ImageDAO();
+    console.log("Inside handler, event: " + JSON.stringify(event));
+    const user = JSON.parse(event.requestContext.authorizer.user);
+    const postDao = new PostDAO();
     try{
-        const image = JSON.parse(event.body);
-        const validation = Utils.validateSchema(user, schema);
-        if(validation.valid){
-            image.id = uniqid();
-            const insertionResponse = await(imageDao.insert(image));
-            console.log("Insertion response: " + JSON.stringify(insertionResponse));
-            output = toResponse(200, "OK");
-        }else{
-            console.error("Schema error: " + JSON.stringify(validation));
-            throw new Error(Utils.buildSchemaErrorsMessage(validation.errors));
-        }
+        const posts = postDao.getPostsByUserId(event.pathParameters.id);
+        output = toResponse(200, { "posts": posts });
     }catch(exc){
         console.error("Exception: " + exc.message);
         output = toResponse(500, "Error interno, intente nuevamente más tarde.");

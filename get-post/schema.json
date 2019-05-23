@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "required": ["userId", "description", "imageId"],
+    "required": ["id", "url", "size"],
     "properties":{
         "userId":{
             "type": "string",

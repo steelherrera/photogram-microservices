@@ -1,7 +1,7 @@
 {
   "name": "create-post",
   "version": "1.0.0",
-  "description": "Handler for creating a post",
+  "description": "Handler that stores image on s3 and creates post",
   "main": "index.js",
   "directories": {
     "lib": "lib"

@@ -1,14 +1,13 @@
 {
-  "name": "run-steps",
+  "name": "get-post",
   "version": "1.0.0",
-  "description": "Handler that runs step functions for post creation process",
+  "description": "Function for getting all user's posts",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "dependencies": {
-    "photogram-core": "git+https://github.com/steelmhf06/photogram-core.git",
-    "uniqid": "^5.0.3"
+    "photogram-core": "git+https://github.com/steelmhf06/photogram-core.git"
   },
   "devDependencies": {},
   "scripts": {
