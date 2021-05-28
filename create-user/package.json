@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^5.0.0",
     "photogram-core": "git+https://github.com/steelmhf06/photogram-core.git",
     "uniqid": "^5.0.3"
   },
